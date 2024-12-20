@@ -1,23 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react"
+import { starshipsService } from "../services/StarshipsService";
+import { AppState } from "../AppState";
+import { StarshipList } from "../components/StarshipList";
+import Pop from "../utils/Pop";
 
 export default function HomePage() {
-  const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const retrieveStarships = async () => {
+      try {
+        setLoading(true);
+        await starshipsService.getStarships();
+
+        setLoading(false)
+      } catch (e) {
+        Pop.error(e as Error);
+      }
+    }
+
+    retrieveStarships();
+  }, [])
+
+  const starships = AppState.starships;
 
   return (
-    <div className="home-page">
-      <div className="container my-3">
-        <div className="row">
-          <div className="col-4">
-            <div className="card">
-              <div className="card-body">
-                <button className="btn btn-success my-1" onClick={() => setCount((count) => count + 1)}>
-                  count is {count}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="container">
+      <div className="row gy-2">
+        { loading ? <h1 className="text-center loading-design">Loading...</h1> : starships.map(s => (<StarshipList key={s.id} starship={s} />)) }
       </div>
-    </div>
+    </section>
   )
 }

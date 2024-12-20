@@ -29,11 +29,9 @@ export function Navbar() {
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-      <Link className="navbar-brand d-flex" to={''}>
-        <div className="d-flex flex-column align-items-center">
-          <img alt="logo" src='cw-logo.png' height="45" />
-        </div>
+    <nav className="navbar navbar-expand-lg px-3">
+      <Link className="navbar-brand" to={''}>
+        <h3 className="brand-title"><strong>STARLOGS</strong></h3>
       </Link>
       <button
         className="navbar-toggler"
@@ -46,19 +44,12 @@ export function Navbar() {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="navbar-nav me-auto">
-          <li>
-            <Link to={'About'} className="btn text-success lighten-30 selectable text-uppercase">
-              About
-            </Link>
-          </li>
-        </ul>
+      <div className="collapse navbar-collapse justify-content-md-end" id="navbarText">
         <div className='d-flex gap-2'>
-          <ThemeToggler />
           <Login />
         </div>
-      </div >
+      </div>
+      
     </nav >
   )
 }

@@ -10,14 +10,64 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--bs-page);
-  transition: background-color .5s ease;
+  background-image: url("https://www.innovationnewsnetwork.com/wp-content/uploads/2021/05/iStockMARIIA-VASILEVA-1173422519.jpg");
+  background-size: cover;
+  transition: background-color 0.5s ease;
 }
 
 main {
   flex-grow: 1;
+  padding: 1rem;
+}
+
+nav {
+  background-color: rgba(127, 0, 255, 40%);
+  box-shadow: 0 4px 30px rgb(0, 0, 0, 0.1%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(127, 0, 255, 30%);
+
+  .brand-title {
+    color: gold;
+    text-shadow: 1px 1px 11px azure;
+  }
 }
 
 a {
   text-decoration: none;
+}
+
+.loading-design {
+  color: goldenrod;
+  text-shadow: 1px 1px 9px azure;
+}
+
+.starship-card {
+  background-color: rgba(0, 0, 0, 40%);
+  color: goldenrod;
+  padding: 0.3rem;
+  box-shadow: 1px 1px 1rem rgba(210, 52, 210, 0.525);
+  border-radius: 30%;
+
+  img {
+    width: 100%;
+    border-radius: 30%;
+  }
+}
+
+.ship-name {
+  color: goldenrod;
+  text-shadow: 1px 1px 11px azure;
+  font-weight: 500;
+}
+
+.view-starship {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: azure;
+  transition: all 0.4s ease;
+
+  &:hover {
+    text-shadow: 1px 1px 11px #fff;
+  }
 }
