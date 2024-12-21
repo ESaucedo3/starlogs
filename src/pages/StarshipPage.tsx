@@ -12,9 +12,9 @@ export default function StarshipPage() {
     const retrieveStarship = async () => {
       try {
         await starshipsService.getStarship(starshipId);
-        await starshipsService.getStarshipCrew(starshipId);
-        await starshipsService.getStarshipLogs(starshipId);
-        setLoading(true);
+        // await starshipsService.getStarshipCrew(starshipId);
+        // await starshipsService.getStarshipLogs(starshipId);
+        setLoading(false);
       } catch (e) {
         Pop.error(e as Error);
       }
@@ -26,8 +26,21 @@ export default function StarshipPage() {
   const starship = AppState.activeStarship;
 
   return (
-   <div>
-    {starship ? <p>STARSHIP</p> : <h1>???</h1>}
-   </div> 
+   <section className="container">
+    <div className="row starship-details-design text-light">
+      <div className="col-7 mx-auto">
+        <h1 className="text-center">{starship?.name}</h1>
+        <div className="w-50 mx-auto">
+          <img src={starship?.image} alt={starship?.name} />
+        </div>
+      </div>
+      <div className="col-md-6">
+        <div>
+          
+        </div>
+      </div>
+      <div className="col-md-6">Hey</div>
+    </div>
+   </section>
   )
 }

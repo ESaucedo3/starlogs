@@ -2,7 +2,7 @@ import { action, makeAutoObservable } from "mobx"
 import { isValidProp } from "./utils/isValidProp.ts"
 import { Account } from './models/Account.js'
 import { Identity } from '@bcwdev/auth0provider-client'
-import { Starship } from "./models/Starship.ts"
+import { Starship, StarshipDetails } from "./models/Starship.ts"
 
 
 class ObservableAppState {
@@ -10,7 +10,7 @@ class ObservableAppState {
   identity: Identity | null = null
   account: Account | null = null
   starships: Starship[] = []
-  activeStarship: Starship | null = null;
+  activeStarship: StarshipDetails | null = null;
 
   constructor() {
     makeAutoObservable(this)

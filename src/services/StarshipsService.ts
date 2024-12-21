@@ -1,5 +1,5 @@
 import { AppState } from "../AppState";
-import { Starship } from "../models/Starship";
+import { Starship, StarshipDetails } from "../models/Starship";
 import { api } from "./AxiosService";
 
 class StarshipsService {
@@ -10,16 +10,17 @@ class StarshipsService {
 
   async getStarship(starshipId: string) {
     const response = await api.get(`api/starships/${starshipId}`);
-    console.log(response.data);
+    const starship = new StarshipDetails(response.data);
+    AppState.activeStarship = starship;
   }
 
   async getStarshipCrew(starshipId: string) {
-    const response = await api.get(`api/starships/${starshipId}/crew?_limit=10`);
+    const response = await api.get(`api/starships/${starshipId}/crew`);
     console.log(response.data);
   }
 
   async getStarshipLogs(starshipId: string) {
-    const response = await api.get(`api/starships/${starshipId}/logs?_limit=10`);
+    const response = await api.get(`api/starships/${starshipId}/logs`);
     console.log(response.data);
   }
 }

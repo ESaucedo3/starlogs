@@ -15,3 +15,28 @@ export class Starship {
     this.image = data.image;
   }
 }
+
+export class StarshipDetails extends Starship {
+  crewCapacity: number
+  yearCommisioned: string
+  starbaseDocked: string
+  missions: string[]
+  notableFeatures: string[]
+  historicalEvents: string[]
+  weaponSystems: string []
+  crewCount: number
+  logCount: number
+
+  constructor(data: StarshipDetails) {
+    super(data);
+    this.crewCapacity = data.crewCapacity;
+    this.yearCommisioned = data.yearCommisioned;
+    this.starbaseDocked = data.starbaseDocked;
+    this.missions = data.missions;
+    this.notableFeatures = data.notableFeatures;
+    this.historicalEvents = data.historicalEvents;
+    this.weaponSystems = data.weaponSystems;
+    this.crewCount = data.crewCount;
+    this.logCount = data.logCount;
+  }
+}
